@@ -6,7 +6,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('bootstrap.urls', namespace='bootstrap'))
+    path('', include('bootstrap.urls', namespace='bootstrap')),
+    path('carousel/', include('carousel.urls', namespace='carousel')),
+
     
 ]
 

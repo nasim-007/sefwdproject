@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'bootstrap',
+    'carousel',
 
     'cloudinary_storage',
     'cloudinary',
