@@ -105,7 +105,11 @@
                   
                   
                 
+                  
                   {% if request.user.is_authenticated %}
+                    
+                  
+                    
                   <a href="{{ data.get_update_url }}">
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </a>
@@ -113,12 +117,16 @@
                  <a href="{{ data.get_delete_url }}">
                     <button style="margin-left: 5px;" type="button" class="btn btn-sm btn-outline-danger">Delete</button>
                   </a>
-                
-                {% else %}
+                 
+                  {% else %}
+          
+                  
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View Only</button>
+                    
+
+                  {% endif %}
                    
-                <button type="button" class="btn btn-sm btn-outline-secondary">View Only</button>
-                
-                {% endif %}
+               
                 </div>
                 
                 <small class="text-muted">{{ data.creation | timesince }} ago</small>

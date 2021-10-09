@@ -1,10 +1,7 @@
 from django.db import models
-from django.db.models.fields import CharField
 from django.urls import reverse
-
-# Create your models
-
-class Corousel(models.Model):
+# Create your models here.
+class Carousel(models.Model):
 
     title = models.CharField(max_length=50)
     short_description = models.TextField()
@@ -14,13 +11,13 @@ class Corousel(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def get_delete_url(self):
-        return reverse("bootstrap:delete", kwargs={
+        return reverse("album:delete", kwargs={
             "id": self.id
             })
 
     def get_update_url(self):
-        return reverse("bootstrap:update", kwargs={
+        return reverse("album:update", kwargs={
             "id": self.id
             })

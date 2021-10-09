@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     
     'bootstrap',
     'carousel',
+    'album',
 
     'cloudinary_storage',
     'cloudinary',
