@@ -7,7 +7,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('album/', include('album.urls', namespace='album')),
-    path('', include('bootstrap.urls', namespace='bootstrap')),
+    path('', include('nimuit.urls', namespace='nimuit')),
+    path('bootstrap/', include('bootstrap.urls', namespace='bootstrap')),
     path('carousel/', include('carousel.urls', namespace='carousel')),
 
     

@@ -28,10 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    #Local Apps
     'bootstrap',
     'carousel',
     'album',
+    'nimuit',
 
+    #Third party apps
     'cloudinary_storage',
     'cloudinary',
 
