@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import BLANK_CHOICE_DASH
 
 # Create your models here.
 class Expert(models.Model):
@@ -33,3 +34,41 @@ class Testimonial(models.Model):
     
     def __str__(self):
         return self.title
+
+class Service(models.Model):
+
+    title = models.CharField(max_length=50)
+    short_description = models.TextField()
+    image = models.ImageField(upload_to='services/')
+
+    
+    def __str__(self):
+        return self.title
+
+class Partner(models.Model):
+
+    
+    image = models.ImageField(upload_to='partner/')
+    image_hover = models.ImageField(upload_to='partner/', blank=True)
+    
+    
+
+class Award(models.Model):
+
+    title = models.CharField(max_length=50)
+    short_description = models.TextField()
+    image = models.ImageField(upload_to='award/')
+
+    
+    def __str__(self):
+        return self.title
+
+class Appointment(models.Model):
+
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    department = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
+

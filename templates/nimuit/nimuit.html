@@ -383,19 +383,30 @@
                                     <h5 class="mb-10">Book appointment</h5>
                                     <p class="text">It's out pleasure to have a chance to cooperate.</p>
                                 </div>
-                                <form id="contact-form" action="assets/php/hero-mail.php" method="post">
-                                    <!-- <form id="contact-form" action="https://whizthemes.com/mail-php/jowel/mitech/php/hero-mail.php" method="post"> -->
+                                
+                                
+                                <form action="" method="post">
+                                    
+                                    {% csrf_token %}
+                                    
                                     <div class="contact-form__two">
+                                        
+                                        
+                                        
+                                        
                                         <div class="contact-inner">
-                                            <input name="con_name" type="text" placeholder="Name *">
+                                            <input name="name" type="text" placeholder="Name *" required>
                                         </div>
+                                        
                                         <div class="contact-inner">
-                                            <input name="con_email" type="email" placeholder="Email *">
+                                            <input name="email" type="email" placeholder="Email *" required>
                                         </div>
+                                        
                                         <div class="contact-select">
                                             <div class="form-item contact-inner">
                                                 <span class="inquiry">
-                                        <select id="Visiting" name="Visiting">
+                                        
+                                            <select id="Visiting" name="department">
                                             <option disabled="" selected="">Select Department to email</option>
                                             <option value="Your inquiry about">Your inquiry about</option>
                                             <option value="General Information Request">General Information Request</option>
@@ -403,12 +414,13 @@
                                             <option value="Careers">Careers</option>
                                             <option value="Software Licencing">Software Licencing</option>
                                         </select>
+                                    
                                     </span>
                                             </div>
                                         </div>
                                         <div class="comment-submit-btn text-center">
                                             <button class="ht-btn ht-btn-md" type="submit">Submit</button>
-                                            <p class="form-messege"></p>
+                                           
                                         </div>
                                     </div>
                                 </form>
@@ -706,18 +718,23 @@
                                     <div class="tab-history-wrap section-space--mt_60">
                                         <div class="row">
 
+                                            
+                                           
+                                                
+                                           
+                                            {% for data in services %}     
                                             <div class="col-lg-4 col-md-6">
                                                 <!-- ht-box-icon Start -->
                                                 <a href="#" class="ht-large-box-images style-04">
                                                     <div class="large-image-box">
                                                         <div class="box-image">
                                                             <div class="default-image">
-                                                                <img class="img-fluid" src="{% static 'assets/images/box-image/blog-01-480x298.webp' %}" alt="">
+                                                                <img class="img-fluid" src="{{ data.image.url }}" alt="Image">
                                                             </div>
                                                         </div>
                                                         <div class="content">
-                                                            <h5 class="heading">Quality Assurance System</h5>
-                                                            <div class="text">At Mitech, we have a holistic and integrated approach towards core modernization to experience technological evolution.
+                                                            <h5 class="heading">{{ data.title }}</h5>
+                                                            <div class="text">{{ data.short_description }}
                                                             </div>
                                                             <div class="box-images-arrow">
                                                                 <span class="button-text">Discover now</span>
@@ -728,50 +745,7 @@
                                                 </a>
                                                 <!-- ht-box-icon End -->
                                             </div>
-                                            <div class="col-lg-4 col-md-6">
-                                                <!-- ht-box-icon Start -->
-                                                <a href="#" class="ht-large-box-images style-04">
-                                                    <div class="large-image-box">
-                                                        <div class="box-image">
-                                                            <div class="default-image">
-                                                                <img class="img-fluid" src="{% static 'assets/images/box-image/mitech-home-infotechno-box-large-image-03-480x298.webp' %}" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h5 class="heading">Highly Professional Staffs</h5>
-                                                            <div class="text">Having obtained the official &amp; formal training in IT technology and technical fields, our staffs know best.
-                                                            </div>
-                                                            <div class="box-images-arrow">
-                                                                <span class="button-text">Discover now</span>
-                                                                <i class="far fa-long-arrow-right"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <!-- ht-box-icon End -->
-                                            </div>
-                                            <div class="col-lg-4 col-md-6">
-                                                <!-- ht-box-icon Start -->
-                                                <a href="#" class="ht-large-box-images style-04">
-                                                    <div class="large-image-box">
-                                                        <div class="box-image">
-                                                            <div class="default-image">
-                                                                <img class="img-fluid" src="{% static 'assets/images/box-image/mitech-home-infotechno-box-large-image-02-480x298.webp' %}" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h5 class="heading">Info Security Management</h5>
-                                                            <div class="text">At Mitech, we have a holistic and integrated approach towards core modernization to experience technological evolution.
-                                                            </div>
-                                                            <div class="box-images-arrow">
-                                                                <span class="button-text">Discover now</span>
-                                                                <i class="far fa-long-arrow-right"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <!-- ht-box-icon End -->
-                                            </div>
+                                            {% endfor %}
 
 
                                         </div>
@@ -783,96 +757,23 @@
                                         <div class="modern-grid--6">
 
 
+                                           
+                                           {% for data in partners %}
+                                               
+                                           
+                                               
                                             <div class="brand-logo brand-logo--slider">
                                                 <a href="#">
                                                     <div class="brand-logo__image">
-                                                        <img src="{% static 'assets/images/brand/mitech-client-logo-01.webp' %}" class="img-fluid" alt="">
+                                                        <img src="{{ data.image.url }}" class="img-fluid" alt="Image">
                                                     </div>
                                                     <div class="brand-logo__image-hover">
-                                                        <img src="{% static 'assets/images/brand/mitech-client-logo-01-hover.webp' %}" class="img-fluid" alt="">
+                                                        <img src="{{ data.image_hover.url }}" class="img-fluid" alt="Image">
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-02.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-02-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-03.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-03-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-04.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-04-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-05.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-05-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-06.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-06-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-07.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-07-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-08.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-08-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="brand-logo brand-logo--slider">
-                                                <a href="#">
-                                                    <div class="brand-logo__image">
-                                                        <img src="assets/images/brand/mitech-client-logo-09.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                    <div class="brand-logo__image-hover">
-                                                        <img src="assets/images/brand/mitech-client-logo-09-hover.webp" class="img-fluid" alt="">
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            {% endfor %}
+                                            
 
                                         </div>
                                     </div>
@@ -881,66 +782,29 @@
                                 <div class="tab-pane fade" id="tab_list_09" role="tabpanel">
                                     <div class="tab-history-wrap section-space--mt_20">
                                         <div class="row">
+                                            
+                                            
+                                            {% for data in awards %}
+                                                
+                                            
+                                                
                                             <div class="col-lg-6">
                                                 <div class="ht-box-images style-08 move-up animate">
                                                     <div class="image-box-wrap">
                                                         <div class="box-image">
                                                             <div class="image">
-                                                                <img src="assets/images/award/mitech-company-award-01-161x110.webp" alt="">
+                                                                <img src="{{ data.image.url }}" alt="Image">
                                                             </div>
                                                         </div>
                                                         <div class="content">
-                                                            <h6 class="heading"> Top Training Companies 2016 </h6>
-                                                            <div class="text">More than 40 years ago, our company’s namesake, LineThemes, pioneered a revolutionary sales training program for businesses of every size.</div>
+                                                            <h6 class="heading"> {{ data.title }} </h6>
+                                                            <div class="text">{{ data.short_description }}</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="ht-box-images style-08 move-up animate">
-                                                    <div class="image-box-wrap">
-                                                        <div class="box-image">
-                                                            <div class="image">
-                                                                <img src="assets/images/award/mitech-company-award-02-161x116.webp" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h6 class="heading">CIO Big Data 100 </h6>
-                                                            <div class="text">More than 40 years ago, our company’s namesake, LineThemes, pioneered a revolutionary sales training program for businesses of every size.</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="ht-box-images style-08 move-up animate">
-                                                    <div class="image-box-wrap">
-                                                        <div class="box-image">
-                                                            <div class="image">
-                                                                <img src="assets/images/award/mitech-company-award-03-161x112.webp" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h6 class="heading">Top 20 Sales Training Companies 2015 </h6>
-                                                            <div class="text">More than 40 years ago, our company’s namesake, LineThemes, pioneered a revolutionary sales training program for businesses of every size.</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="ht-box-images style-08 move-up animate">
-                                                    <div class="image-box-wrap">
-                                                        <div class="box-image">
-                                                            <div class="image">
-                                                                <img src="assets/images/award/mitech-company-award-04-161x109.webp" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h6 class="heading">Pharma Tech Outlook </h6>
-                                                            <div class="text">More than 40 years ago, our company’s namesake, LineThemes, pioneered a revolutionary sales training program for businesses of every size.</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {% endfor %}
+                                        
                                         </div>
                                     </div>
                                 </div>
