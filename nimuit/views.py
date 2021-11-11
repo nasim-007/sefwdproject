@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Expert, Project, Testimonial, Service, Partner, Award
-from .forms import AppointmentForm
+from .forms import AppointmentForm, ContactForm
 from django.http import HttpResponseRedirect
+from django.views.generic.edit import FormView
+
 # Create your views here.
 
 def index(request):
@@ -15,21 +17,28 @@ def index(request):
     
     if request.method == 'POST':
         
-        appointment_form = AppointmentForm(request.POST)
+        appoint_form = AppointmentForm(request.POST)
         
-        if appointment_form.is_valid():
+        
+        if appoint_form.is_valid():
             
-            appointment_form.save()
+            appoint_form.save()
+           
             # redirect to a new URL:
             return HttpResponseRedirect(request.path_info)
-
-    
+        
+        
+        
+        
     
     
     # if a GET (or any other method) we'll create a blank form
     else:
+        appoint_form = AppointmentForm()
         
-        appointment_form = AppointmentForm()
+
+
+    
     
     
     context = {
@@ -44,3 +53,42 @@ def index(request):
     }
 
     return render(request, 'nimuit/nimuit.html', context)
+
+
+def contact(request):
+
+    if request.method == 'POST':
+        
+        contact_form = ContactForm(request.POST)
+        
+        
+        if contact_form.is_valid():
+            
+            contact_form.save()
+           
+            # redirect to a new URL:
+            return HttpResponseRedirect('/')
+        
+        
+        
+        
+    
+    
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        contact_form = ContactForm()
+        
+    
+    context = {
+
+    }
+
+    return render(request, 'nimuit/nimuit.html', context)
+
+def itsolution(request):
+
+    context = {
+
+    }
+
+    return render(request, 'nimuit/it-solution.html', context)

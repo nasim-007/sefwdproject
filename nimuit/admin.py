@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Expert, Project, Testimonial, Service, Partner, Award, Appointment
+from .models import Expert, Contact, Project, Testimonial, Service, Partner, Award, Appointment
 # Register your models here.
 
 class ExpertAdmin(admin.ModelAdmin):
@@ -44,3 +44,9 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'department']
 
 admin.site.register(Appointment, AppointmentAdmin)
+
+class ContactAdmin(admin.ModelAdmin):
+
+    list_display = ['name', 'email', 'message', 'department']
+
+admin.site.register(Contact, ContactAdmin)
