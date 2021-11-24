@@ -1,7 +1,7 @@
 
 import django_heroku
 from pathlib import Path
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-q&7n(ep)+8tkky@ix!*))$v0@w5r=h3_==dc-y@&0y7-6fki@v'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -130,12 +130,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dizxnufxk',
-    'API_KEY': '957717278811187',
-    'API_SECRET': 'oQ85NmE2rW7o62jhROiTPTBwrr8'
-}
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('API_KEY'),
+    'API_SECRET': config('API_SECRET')
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 

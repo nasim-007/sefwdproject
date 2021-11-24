@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.views.static import serve as mediaserve
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
-
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,7 +14,11 @@ urlpatterns = [
     path('', include('nimuit.urls', namespace='nimuit')),
     path('bootstrap/', include('bootstrap.urls', namespace='bootstrap')),
     path('carousel/', include('carousel.urls', namespace='carousel')),
-
+    
+    url(r'^robots\.txt/$', TemplateView.as_view(template_name='robots.txt',
+                                            content_type='text/plain')),
+    url(r'^sitemap\.xml/$', TemplateView.as_view(template_name='sitemap.xml',
+                                            content_type='text/plain')),                                        
     
 ]
 

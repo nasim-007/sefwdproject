@@ -42,3 +42,35 @@ name_obj.myage('Coding')
 
 nasim_obj.greetings()
 nasim_obj.books()
+
+
+
+def search(request):
+    
+    queryset1 = Project.objects.all()
+    queryset2 = Service.objects.all()
+    
+    query = request.GET.get('q')
+    
+    if query:
+        queryset1 = queryset1.filter(
+            Q(title__icontains=query) | Q(short_description__icontains=query) |
+            Q(category__icontains=query)
+
+
+        ).distinct()
+        
+        queryset2 = queryset2.filter(
+            Q(title__icontains=query) | Q(short_description__icontains=query)
+
+        ).distinct()
+    
+    
+    context = {
+        'queryset1': queryset1,
+        'queryset2': queryset2,
+        'query': query
+
+
+    }
+    return render(request, 'nimuit/search.html', context)
