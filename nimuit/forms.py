@@ -5,7 +5,7 @@ class AppointmentForm(forms.ModelForm):
     
     class Meta:
         model = Appointment
-        fields = ('name', 'email', 'department' )
+        fields = ('name', 'email', 'department', 'time' )
 
 class ContactForm(forms.ModelForm):
     

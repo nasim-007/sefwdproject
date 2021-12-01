@@ -4,7 +4,7 @@ from .forms import AppointmentForm, ContactForm
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.db.models import Q
-
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -24,7 +24,7 @@ def index(request):
         if appoint_form.is_valid():
             
             appoint_form.save()
-           
+            messages.success(request, 'You booked an appointment.')
             # redirect to a new URL:
             return HttpResponseRedirect(request.path_info)
         
@@ -66,7 +66,7 @@ def contact(request):
         if contact_form.is_valid():
             
             contact_form.save()
-           
+            messages.success(request, 'We will contact you soon.')
             # redirect to a new URL:
             return HttpResponseRedirect('/')
         

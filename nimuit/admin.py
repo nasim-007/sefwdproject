@@ -41,7 +41,7 @@ admin.site.register(Award, AwardAdmin)
 
 class AppointmentAdmin(admin.ModelAdmin):
 
-    list_display = ['name', 'email', 'department']
+    list_display = ['name', 'email', 'time', 'department']
 
 admin.site.register(Appointment, AppointmentAdmin)
 

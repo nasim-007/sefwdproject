@@ -3997,17 +3997,17 @@ input[type="checkbox"] {
   background-color: #333;
 }
 
-.hidden-icons-menu {
+.mobile-navigation-icon{
   margin-left: 15px;
 }
 
 .hidden-icons-menu a {
-  color: #6D70A6;
+  color: #333333;
   font-size: 20px;
 }
 
 .hidden-icons-menu a:hover {
-  color: #086AD8;
+  color: #333333;
 }
 
 /*================================ 

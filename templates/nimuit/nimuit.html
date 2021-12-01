@@ -54,8 +54,8 @@
                             <div class="header-right-inner" id="hidden-icon-wrapper">
                                 <!-- Header Search Form -->
                                 <div class="header-search-form d-md-none d-block">
-                                    <form action="#" class="search-form-top">
-                                        <input class="search-field" type="text" placeholder="Search…">
+                                    <form action="{% url 'nimuit:search' %}" class="search-form-top">
+                                        <input class="search-field" type="search" name="q" placeholder="Search…">
                                         <button class="search-submit">
                                             <i class="search-btn-icon fa fa-search"></i>
                                         </button>
@@ -149,16 +149,20 @@
                                 </div>
 
                             </div>
+                            
+                            <!-- hidden icons menu -->
+                            <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-search"></i>
+
+                                </a>
+                            </div>
+                            
                             <!-- mobile menu -->
                             <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
                                 <i></i>
                             </div>
-                            <!-- hidden icons menu -->
-                            <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
-                                <a href="javascript:void(0)">
-                                    <i class="far fa-ellipsis-h-alt"></i>
-                                </a>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -236,18 +240,40 @@
 
     <div id="main-wrapper">
         <div class="site-wrapper-reveal">
+            
+            
+            
+            
+            
+            
             <!--============ Appointment Hero Start ============-->
             <div class="appointment-hero-wrapper appointment-hero-bg section-space--ptb_120">
                 <div class="container">
                     <div class="row align-items-center">
+                        
+                        
+                        {% if messages %} 
+                        
+                        {% for data in messages %}
+                            
+                        
+                            
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ data.message }}</strong> 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                          {% endfor %}
+                          {% endif %}
+                        
+                        
                         <div class="col-lg-6 col-md-6">
                             <div class="appointment-hero-wrap wow move-up animated" style="visibility: visible;">
                                 <div class="appointment-hero-text">
                                     <h6 class="text-white">Secure &amp; IT Services </h6>
                                     <h1 class="font-weight--reguler text-white mb-30">Excellent IT services for <span class="text-line">your success</span></h1>
                                     <div class="hero-button">
-                                        <div class="video-popup infotech-video-box">
-                                            <a href="https://www.youtube.com/watch?v=9No-FiEInLA" class="single-popup-wrap video-link">
+                                        <div class="infotech-video-box">
+                                            <a href="" class="single-popup-wrap video-link">
                                                 <div class="video-content">
                                                     <div class="ht-popup-video video-button">
                                                         <div class="video-mark">
@@ -300,17 +326,47 @@
                                                 <span class="inquiry">
                                         
                                             <select id="Visiting" name="department">
-                                            <option disabled="" selected="">Select Department to email</option>
+                                            <option disabled="" selected="">Select Department</option>
                                             <option value="Your inquiry about">Your inquiry about</option>
                                             <option value="General Information Request">General Information Request</option>
                                             <option value="Partner Relations">Partner Relations</option>
                                             <option value="Careers">Careers</option>
                                             <option value="Software Licencing">Software Licencing</option>
                                         </select>
+
+                                        
+                                    
+                                    
+                                    
                                     
                                     </span>
                                             </div>
                                         </div>
+                                        
+
+
+                                        <div class="contact-select">
+                                            <div class="form-item contact-inner">
+                                                <span class="inquiry">
+                                        
+                                            <select id="Visiting" name="time">
+                                            <option disabled="" selected="">Select Schedule</option>
+                                            
+                                            <option value="Morining">10:00AM-11:00AM</option>
+                                            <option value="After Noon">4:00PM-5:00PM</option>
+                                            <option value="Evening">7:00PM-8:00PM</option>
+                                        </select>
+
+                                        
+                                    
+                                    
+                                    
+                                    
+                                    </span>
+                                            </div>
+                                        </div>
+                                        
+                                        
                                         <div class="comment-submit-btn text-center">
                                             <button class="ht-btn ht-btn-md" type="submit">Submit</button>
                                            
@@ -323,213 +379,12 @@
                 </div>
             </div>
             <!--============ Appointment Hero End ============-->
-            <!--===========  feature-icon-wrapper  Start =============-->
-            <div class="feature-icon-wrapper section-space--ptb_100">
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section-title-wrap text-center section-space--mb_40">
-                                <h6 class="section-sub-title mb-20">Industries we Serve</h6>
-                                <h3 class="heading">Services We Deliver<br> we provide <span class="text-color-primary"> truly prominent IT solutions.</span></h3>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="feature-list__two">
-                                <div class="row">
-                                   
-                                    <div class="col-lg-4 col-md-6 wow move-up animated" style="visibility: visible;">
-                                        <div class="ht-box-icon style-02 single-svg-icon-box">
-                                            <div class="icon-box-wrap">
-                                                <div class="icon">
-                                                    <div class="svg-icon" id="svg-1" data-svg-icon="assets/images/svg/linea-basic-heart.svg"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-                                                    <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1,21c0,20,31,38,31,38s31-18,31-38  c0-8.285-6-16-15-16c-8.285,0-16,5.715-16,14c0-8.285-7.715-14-16-14C7,5,1,12.715,1,21z" style="stroke-dasharray: 198, 200; stroke-dashoffset: 0;"></path>
-                                                    <style xmlns="" type="text/css" id="igtranslator-color"></style></svg></div>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="heading">IT Design </h5>
-                                                    <div class="text">We provide the most responsive and functional IT design for companies and businesses worldwide.
-                                                    </div>
-                                                    <div class="feature-btn">
-                                                        <a href="#">
-                                                            <span class="button-text">Discover now</span>
-                                                            <i class="far fa-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 wow move-up animated" style="visibility: visible;">
-                                        <div class="ht-box-icon style-02 single-svg-icon-box">
-                                            <div class="icon-box-wrap">
-                                                <div class="icon">
-                                                    <div class="svg-icon" id="svg-2" data-svg-icon="assets/images/svg/linea-basic-case.svg"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-<g>
-	<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="62" height="36" d="M1 18 L63 18 L63 54 L1 54 Z" style="stroke-dasharray: 196, 198; stroke-dashoffset: 0;"></path>
-</g>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1,30L63,30" style="stroke-dasharray: 62, 64; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M27,30L27,36L37,36L37,30" style="stroke-dasharray: 22, 24; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M23,18c0,0,0-8,9-8s9,8,9,8" style="stroke-dasharray: 27, 29; stroke-dashoffset: 0;"></path>
-<style xmlns="" type="text/css" id="igtranslator-color"></style></svg></div>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="heading">IT Management</h5>
-                                                    <div class="text">It’s possible to simultaneously manage and transform information from one server to another.
-                                                    </div>
-                                                    <div class="feature-btn">
-                                                        <a href="#">
-                                                            <span class="button-text">Discover now</span>
-                                                            <i class="far fa-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 wow move-up animated" style="visibility: visible;">
-                                        <div class="ht-box-icon style-02 single-svg-icon-box">
-                                            <!-- ht-box-icon Start -->
-                                            <div class="icon-box-wrap">
-                                                <div class="icon">
-                                                    <div class="svg-icon" id="svg-3" data-svg-icon="assets/images/svg/linea-basic-alarm.svg"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M6,32A26,26 0,1,1 58,32A26,26 0,1,1 6,32" style="stroke-dasharray: 164, 166; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M32,20L32,32L40,36" style="stroke-dasharray: 21, 23; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M21.995,56.005L15,63" style="stroke-dasharray: 10, 12; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M49,63L42.005,56.005" style="stroke-dasharray: 10, 12; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1,8L5,4L15,6L3,18Z" style="stroke-dasharray: 44, 46; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M59,4L63,8L61,18L49,6Z" style="stroke-dasharray: 44, 46; stroke-dashoffset: 0;"></path>
-<style xmlns="" type="text/css" id="igtranslator-color"></style></svg></div>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="heading">Data Security</h5>
-                                                    <div class="text">We provide the most responsive and functional IT design for companies and businesses worldwide.
-                                                    </div>
-                                                    <div class="feature-btn">
-                                                        <a href="#">
-                                                            <span class="button-text">Discover now</span>
-                                                            <i class="far fa-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- ht-box-icon End -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 wow move-up animated" style="visibility: visible;">
-                                        <div class="ht-box-icon style-02 single-svg-icon-box">
-                                            <!-- ht-box-icon Start -->
-                                            <div class="icon-box-wrap">
-                                                <div class="icon">
-                                                    <div class="svg-icon" id="svg-4" data-svg-icon="assets/images/svg/linea-basic-geolocalize-05.svg"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-<g>
-	<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M28,19.001A4,4 0,1,1 36,19.001A4,4 0,1,1 28,19.001" style="stroke-dasharray: 26, 28; stroke-dashoffset: 0;"></path>
-	<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M45,21.023C44.968,13.276,39.181,7,32,7   s-13,6.276-13,14.023C19,31.046,31.979,47,31.979,47S45.043,31.046,45,21.023z" style="stroke-dasharray: 102, 104; stroke-dashoffset: 0;"></path>
-</g>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M21,37L12,37L1,57L32,57L63,57L52,37L43,37" style="stroke-dasharray: 126, 128; stroke-dashoffset: 0;"></path>
-<style xmlns="" type="text/css" id="igtranslator-color"></style></svg></div>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="heading">Business Reform</h5>
-                                                    <div class="text">We provide the most responsive and functional IT design for companies and businesses worldwide.
-                                                    </div>
-                                                    <div class="feature-btn">
-                                                        <a href="#">
-                                                            <span class="button-text">Discover now</span>
-                                                            <i class="far fa-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- ht-box-icon End -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 wow move-up animated" style="visibility: visible;">
-                                        <div class="ht-box-icon style-02 single-svg-icon-box">
-                                            <!-- ht-box-icon Start -->
-                                            <div class="icon-box-wrap">
-                                                <div class="icon">
-                                                    <div class="svg-icon" id="svg-5" data-svg-icon="assets/images/svg/linea-ecommerce-money.svg"><svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M25,38A19,19 0,1,1 63,38A19,19 0,1,1 25,38" style="stroke-dasharray: 120, 122; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M31,38A13,13 0,1,1 57,38A13,13 0,1,1 31,38" style="stroke-dasharray: 82, 84; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M30,51L1,51L1,57L38,57L38,56" style="stroke-dasharray: 73, 75; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M27,45L3,45L3,51L30,51" style="stroke-dasharray: 57, 59; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M26,39L5,39L5,45L27,45" style="stroke-dasharray: 49, 51; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M26,33L1,33L1,39L26,39" style="stroke-dasharray: 56, 58; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M29,27L3,27L3,33L26,33" style="stroke-dasharray: 55, 57; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M35,21L1,21L1,27L29,27" style="stroke-dasharray: 68, 70; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M40,20L40,15L3,15L3,21L35,21" style="stroke-dasharray: 80, 82; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="37" height="6" d="M1 9 L38 9 L38 15 L1 15 Z" style="stroke-dasharray: 86, 88; stroke-dashoffset: 0;"></path>
-<style xmlns="" type="text/css" id="igtranslator-color"></style></svg></div>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="heading">Infrastructure Plan</h5>
-                                                    <div class="text">We provide the most responsive and functional IT design for companies and businesses worldwide.
-                                                    </div>
-                                                    <div class="feature-btn">
-                                                        <a href="#">
-                                                            <span class="button-text">Discover now</span>
-                                                            <i class="far fa-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- ht-box-icon End -->
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-lg-4 col-md-6 wow move-up animated" style="visibility: visible;">
-                                        <div class="ht-box-icon style-02 single-svg-icon-box">
-                                            <!-- ht-box-icon Start -->
-                                            <div class="icon-box-wrap">
-                                                <div class="icon">
-                                                    <div class="svg-icon" id="svg-6" data-svg-icon="assets/images/svg/linea-basic-spread-text-bookmark.svg"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1,6L1,54L32,58L63,54L63,6L32,10Z" style="stroke-dasharray: 222, 224; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M32,58L32,10" style="stroke-dasharray: 48, 50; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M43,8L43,27L47,25L51,27L51,7" style="stroke-dasharray: 48, 50; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M7,16L26,18" style="stroke-dasharray: 20, 22; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M7,26L26,28" style="stroke-dasharray: 20, 22; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M7,36L26,38" style="stroke-dasharray: 20, 22; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M7,46L26,48" style="stroke-dasharray: 20, 22; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M57,36L38,38" style="stroke-dasharray: 20, 22; stroke-dashoffset: 0;"></path>
-<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M57,46L38,48" style="stroke-dasharray: 20, 22; stroke-dashoffset: 0;"></path>
-<style xmlns="" type="text/css" id="igtranslator-color"></style></svg></div>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="heading">Firewall Advance</h5>
-                                                    <div class="text">We provide the most responsive and functional IT design for companies and businesses worldwide.
-                                                    </div>
-                                                    <div class="feature-btn">
-                                                        <a href="#">
-                                                            <span class="button-text">Discover now</span>
-                                                            <i class="far fa-long-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- ht-box-icon End -->
-                                        </div>
-                                    </div>
-                                
-                                
-                                
-                                
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="feature-list-button-box mt-30 text-center">
-                                <a href="#" class="ht-btn ht-btn-md">Talk to a consultant</a>
-                                <a href="#" class="ht-btn ht-btn-md ht-btn--outline">Contact us now </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--===========  feature-icon-wrapper  End =============-->
+            
+            
+            
+            
+            
+            
             <!--======== Tabs Wrapper Start ======== -->
             <div class="tabs-wrapper bg-gray section-space--ptb_100">
                 <div class="container">
@@ -567,8 +422,8 @@
                                     <div class="tab-history-wrap section-space--mt_40">
                                         <div class="row">
                                             <div class="col-lg-6 ">
-                                                <div class="tab-history-image video-popup mt-30">
-                                                    <a href="https://www.youtube.com/watch?v=9No-FiEInLA" class="video-link">
+                                                <div class="tab-history-image mt-30">
+                                                    <a href="" class="video-link">
                                                         <div class="single-popup-wrap">
                                                             <img class="img-fluid" src="{% static 'assets/images/bg/home-processing-video-intro-slider-slide-01-image-01-570x350.webp' %}" alt="">
                                                             <div class="ht-popup-video video-button">
@@ -718,7 +573,7 @@
                         <div class="col-lg-4">
                             <div class="section-title section-space--mb_60">
                                 <h3 class="heading">Our <span class="text-color-primary">experience </span> experts</h3>
-                                <p class="text mt-30">Mitech specializes in technological and IT-related services such as product engineering, warranty management, building cloud, infrastructure, network, etc. </p>
+                                <p class="text mt-30">Nimusoft specializes in technological and IT-related services such as product engineering, warranty management, building cloud, infrastructure, network, etc. </p>
 
                                 <div class="sider-title-button-box mt-30">
                                     <a href="#" class="ht-btn ht-btn-md">Join us now</a>
@@ -901,7 +756,7 @@
                         <div class="col-lg-12">
                             <div class="section-title-wrap text-center section-space--mb_40">
                                 <h6 class="section-sub-title mb-20">Testimonials</h6>
-                                <h3 class="heading">What do people praise about <span class="text-color-primary"> Mitech?</span></h3>
+                                <h3 class="heading">What do people praise about <span class="text-color-primary"> Nimusoft?</span></h3>
                             </div>
                             <div class="testimonial-slider">
                                 <div class="swiper-container testimonial-slider__container swiper-container-initialized swiper-container-horizontal">
@@ -931,7 +786,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="testimonial-slider__text">I’ve been working with over 35 IT companies on more than 200 projects of our company, but @Mitech is one of the most impressive to me.</div>
+                                                <div class="testimonial-slider__text">I’ve been working with over 35 IT companies on more than 200 projects of our company, but @Nimusoft is one of the most impressive to me.</div>
 
                                             </div>
                                         </div>
