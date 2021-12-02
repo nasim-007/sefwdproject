@@ -2,7 +2,7 @@
 <html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" lang="zxx"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Nimusoft - Search</title>
+    <title>Nimusoft - IT Solution</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -177,7 +177,7 @@
                                 <nav class="navigation-menu navigation-menu--text_white">
 
                                     <ul>
-                                        <li class="active">
+                                        <li >
                                             <a href="{% url 'nimuit:index' %}"><span>Home</span></a>
                                             
                                         </li>
@@ -190,7 +190,7 @@
                                             <a href="{% url 'nimuit:itsolution' %}"><span>IT solutions</span></a>
                                             
                                         </li>
-                                        <li >
+                                        <li class="active">
                                             <a href="{% url 'nimuit:contact' %}"><span>Contact Us</span></a>
                                             <!-- mega menu -->
                                             
@@ -242,11 +242,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_box text-center">
-                        <h2 class="breadcrumb-title">You search: {{ query }}</h2>
+                        <h2 class="breadcrumb-title">Contact Us</h2>
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item active">Search</li>
+                            <li class="breadcrumb-item active">Contact Us</li>
                         </ul>
                         <!-- breadcrumb-list end -->
                     </div>
@@ -270,253 +270,156 @@
     <div id="main-wrapper">
         <div class="site-wrapper-reveal">
             
-         
-         
-        
-        {% if query %}
             
-        
-                 
-         
-        {% if queryset1 %}    
-        <!--===========  Projects wrapper Start =============-->
-        <div class="projects-wrapper projectinfotechno-bg section-space--ptb_100">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- section-title-wrap Start -->
-                        <div class="section-title-wrap text-center section-space--mb_20">
-                           
-                            <h4 class="heading">Search result according <span class="text-color-primary"> Projects</span></h4>
-                        </div>
-                        <!-- section-title-wrap Start -->
-                    </div>
-                </div>
-                
-                <div class="row">
-                    {% for data in queryset1 %}     
-                    <div class="col-lg-4 col-md-6">
-                        <!-- ht-box-icon Start -->
-                        <a href="#" class="ht-large-box-images style-04">
-                            <div class="large-image-box">
-                                <div class="box-image">
-                                    <div class="default-image">
-                                        <img class="img-fluid" src="{{ data.image.url }}" alt="Image">
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h5 class="heading">{{ data.title }}</h5>
-                                    <div class="text">{{ data.short_description }}
-                                    </div>
-                                    
-                                </div>
+            
+            
+            <!--============ Contact Us Area Start =================-->
+            <div class="contact-us-area infotechno-contact-us-bg section-space--pt_100">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-7">
+                            <div class="image">
+                                <img class="img-fluid" src="{% static 'assets/images/banners/home-cybersecurity-contact-bg-image.webp' %}" alt="Image">
                             </div>
-                        </a>
-                        <!-- ht-box-icon End -->
-                    </div>
-                    {% endfor %}
-                </div>
-
-                
-            </div>
-        </div>
-        <!--===========  Projects wrapper End =============-->
-        {% else %}
-        
-        
-        
-        {% endif %}
-        
-        
-        {% if queryset2 %} 
-        <!--===========  Service wrapper Start =============-->
-        <div class="projects-wrapper projectinfotechno-bg">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- section-title-wrap Start -->
-                        <div class="section-title-wrap text-center section-space--mb_20">
-                           
-                            <h4 class="heading">Search result according <span class="text-color-primary"> Services</span></h4>
                         </div>
-                        <!-- section-title-wrap Start -->
-                    </div>
-                </div>
 
-                <div class="row">
-                    
-                    {% for data in queryset2 %}     
-                    <div class="col-lg-4 col-md-6">
-                        <!-- ht-box-icon Start -->
-                        <a href="#" class="ht-large-box-images style-04">
-                            <div class="large-image-box">
-                                <div class="box-image">
-                                    <div class="default-image">
-                                        <img class="img-fluid" src="{{ data.image.url }}" alt="Image">
+                        <div class="col-lg-4 ms-auto">
+                            <div class="contact-info style-two text-left">
+
+                                <div class="contact-info-title-wrap text-center">
+                                    <h3 class="heading  mb-10">4.9/5.0</h3>
+                                    <div class="ht-star-rating lg-style">
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
                                     </div>
+                                    <p class="sub-text">by 700+ customers for 3200+ clients</p>
                                 </div>
-                                <div class="content">
-                                    <h5 class="heading">{{ data.title }}</h5>
-                                    <div class="text">{{ data.short_description }}
-                                    </div>
-                                   
+
+                                <div class="contact-list-item">
+                                    <a href="tel:190068668" class="single-contact-list">
+                                        <div class="content-wrap">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <span class="fal fa-phone"></span>
+                                                </div>
+                                                <div class="main-content">
+                                                    <h6 class="heading">Call for advice now!</h6>
+                                                    <div class="text">01777 424142</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="mailto:nasim@nimusoft.com" class="single-contact-list">
+                                        <div class="content-wrap">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <span class="fal fa-envelope"></span>
+                                                </div>
+                                                <div class="main-content">
+                                                    <h6 class="heading">Say hello</h6>
+                                                    <div class="text">nasim@nimusoft.com</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
+
                             </div>
-                        </a>
-                        <!-- ht-box-icon End -->
+                        </div>
                     </div>
-                    {% endfor %}
-                
-                
                 </div>
             </div>
+            <!--============ Contact Us Area End =================-->
+
         </div>
-        <!--===========  Projects wrapper End =============-->
-        {% else %}
-        
-        
-        {% endif %}
-        
-        
-        {% if queryset3 %} 
-        <!--===========  Expert wrapper Start =============-->
-        <div class="projects-wrapper projectinfotechno-bg">
-            <div class="container">
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- section-title-wrap Start -->
-                        <div class="section-title-wrap text-center section-space--mb_20">
-                           
-                            <h4 class="heading">Search result according <span class="text-color-primary"> Experts</span></h4>
-                        </div>
-                        <!-- section-title-wrap Start -->
-                    </div>
-                </div>
 
-                <div class="row">
-                    {% for data in queryset3 %}     
-                    <div class="col-lg-4 col-md-6">
-                        <!-- ht-box-icon Start -->
-                        <a href="#" class="ht-large-box-images style-04">
-                            <div class="large-image-box">
-                                <div class="box-image">
-                                    <div class="default-image">
-                                        <img class="img-fluid" src="{{ data.image.url }}" alt="Image">
-                                    </div>
-                                </div>
-                                <div class="content">
-                                    <h5 class="heading">{{ data.title }}</h5>
-                                    <div class="text">{{ data.designation }}
-                                    </div>
-                                    
-                                </div>
+        <!--====================  footer area ====================-->
+        <div class="footer-area-wrapper bg-gray">
+            <div class="footer-area section-space--ptb_80">
+                <div class="container">
+                    <div class="row footer-widget-wrapper">
+                        <div class="col-lg-4 col-md-6 col-sm-6 footer-widget">
+                            <div class="footer-widget__logo mb-30">
+                                <img src="{% static 'assets/images/logo/dark-logo-160x48.webp' %}" width="160" height="48" class="img-fluid" alt="">
                             </div>
-                        </a>
-                        <!-- ht-box-icon End -->
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <!--===========  Projects wrapper End =============-->
-        {% else %}
-        
-        
-        {% endif %}
-        
-        {% else %}
-
-        <h4 style="margin-top: 100px; margin-bottom: 100px;" class="heading text-center">You didn't search anything.</h4>
-        {% endif %}
-    
-    </div>
-
-
-      <!--====================  footer area ====================-->
-      <div class="footer-area-wrapper bg-gray">
-        <div class="footer-area section-space--ptb_80">
-            <div class="container">
-                <div class="row footer-widget-wrapper">
-                    <div class="col-lg-4 col-md-6 col-sm-6 footer-widget">
-                        <div class="footer-widget__logo mb-30">
-                            <img src="{% static 'assets/images/logo/dark-logo-160x48.webp' %}" width="160" height="48" class="img-fluid" alt="">
+                            <ul class="footer-widget__list">
+                                <li>Bashundhara(R/A), Dhaka.</li>
+                                <li><a href="mailto:nasim@nimusoft.com" class="hover-style-link">nasim@nimusoft.com</a></li>
+                                <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">+88 01777-424142</a></li>
+                                <li><a href="" class="hover-style-link text-color-primary">nimusoft.com</a></li>
+                            </ul>
                         </div>
-                        <ul class="footer-widget__list">
-                            <li>Bashundhara(R/A), Dhaka.</li>
-                            <li><a href="mailto:nasim@nimusoft.com" class="hover-style-link">nasim@nimusoft.com</a></li>
-                            <li><a href="tel:123344556" class="hover-style-link text-black font-weight--bold">+88 01777-424142</a></li>
-                            <li><a href="" class="hover-style-link text-color-primary">nimusoft.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
-                        <h6 class="footer-widget__title mb-20">IT Services</h6>
-                        <ul class="footer-widget__list">
-                            
-                            <li><a href="#" class="hover-style-link">Cloud Computing</a></li>
-                            <li><a href="#" class="hover-style-link">Cyber Security</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
-                        <h6 class="footer-widget__title mb-20">Quick links</h6>
-                        <ul class="footer-widget__list">
-                            
-                            <li><a href="#" class="hover-style-link">Privacy Policy</a></li>
-                            
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
-                        <h6 class="footer-widget__title mb-20">Support</h6>
-                        <ul class="footer-widget__list">
-                            
-                            <li><a href="{% url 'nimuit:contact' %}" class="hover-style-link">Contact Us</a></li>
-                            
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
-                        <div class="footer-widget__title section-space--mb_50"></div>
-                        <ul class="footer-widget__list">
-                            <li><a href="#" class="image_btn"><img class="img-fluid" src="{% static 'assets/images/icons/aeroland-button-google-play.webp' %}" alt=""></a></li>
-                            <li><a href="#" class="image_btn"><img class="img-fluid" src="{% static 'assets/images/icons/aeroland-button-app-store.webp' %}" alt=""></a></li>
-                        </ul>
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
+                            <h6 class="footer-widget__title mb-20">IT Services</h6>
+                            <ul class="footer-widget__list">
+                                
+                                <li><a href="#" class="hover-style-link">Cloud Computing</a></li>
+                                <li><a href="#" class="hover-style-link">Cyber Security</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
+                            <h6 class="footer-widget__title mb-20">Quick links</h6>
+                            <ul class="footer-widget__list">
+                                
+                                <li><a href="#" class="hover-style-link">Privacy Policy</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
+                            <h6 class="footer-widget__title mb-20">Support</h6>
+                            <ul class="footer-widget__list">
+                                
+                                <li><a href="{% url 'nimuit:contact' %}" class="hover-style-link">Contact Us</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 footer-widget">
+                            <div class="footer-widget__title section-space--mb_50"></div>
+                            <ul class="footer-widget__list">
+                                <li><a href="#" class="image_btn"><img class="img-fluid" src="{% static 'assets/images/icons/aeroland-button-google-play.webp' %}" alt=""></a></li>
+                                <li><a href="#" class="image_btn"><img class="img-fluid" src="{% static 'assets/images/icons/aeroland-button-app-store.webp' %}" alt=""></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright-area section-space--pb_30">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <span class="copyright-text">© 2021 Nimusoft. <a href="">All Rights Reserved.</a></span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <ul class="list ht-social-networks solid-rounded-icon">
+            <div class="footer-copyright-area section-space--pb_30">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-center text-md-start">
+                            <span class="copyright-text">© 2021 Nimusoft. <a href="">All Rights Reserved.</a></span>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <ul class="list ht-social-networks solid-rounded-icon">
 
-                            
-                            <li class="item">
-                                <a href="https://facebook.com/nasimnimu007" target="_blank" aria-label="Facebook" class="social-link hint--bounce hint--top hint--primary">
-                                    <i style="margin-top: 7px;" class="fab fa-facebook-f link-icon"></i>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="https://github.com/nasim-007" target="_blank" aria-label="Github" class="social-link hint--bounce hint--top hint--primary">
-                                    <i style="margin-top: 7px;" class="fab fa-github link-icon"></i>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="https://www.linkedin.com/in/nasim007/" target="_blank" aria-label="Linkedin" class="social-link hint--bounce hint--top hint--primary">
-                                    <i style="margin-top: 7px;" class="fab fa-linkedin link-icon"></i>
-                                </a>
-                            </li>
-                        </ul>
+                                
+                                <li class="item">
+                                    <a href="https://facebook.com/nasimnimu007" target="_blank" aria-label="Facebook" class="social-link hint--bounce hint--top hint--primary">
+                                        <i style="margin-top: 7px;" class="fab fa-facebook-f link-icon"></i>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="https://github.com/nasim-007" target="_blank" aria-label="Github" class="social-link hint--bounce hint--top hint--primary">
+                                        <i style="margin-top: 7px;" class="fab fa-github link-icon"></i>
+                                    </a>
+                                </li>
+                                <li class="item">
+                                    <a href="https://www.linkedin.com/in/nasim007/" target="_blank" aria-label="Linkedin" class="social-link hint--bounce hint--top hint--primary">
+                                        <i style="margin-top: 7px;" class="fab fa-linkedin link-icon"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--====================  End of footer area  ====================-->
+        <!--====================  End of footer area  ====================-->
+
 
 
 

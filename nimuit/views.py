@@ -94,6 +94,49 @@ def itsolution(request):
 
     return render(request, 'nimuit/it-solution.html', context)
 
+def about_us(request):
+
+    testimonials = Testimonial.objects.all()
+    
+    context = {
+
+        'testimonials': testimonials
+
+    }
+
+    return render(request, 'nimuit/about.html', context)
+
+def contact_us(request):
+
+    if request.method == 'POST':
+        
+        contact_form = ContactForm(request.POST)
+        
+        
+        if contact_form.is_valid():
+            
+            contact_form.save()
+            messages.success(request, 'We will contact you soon.')
+            # redirect to a new URL:
+            return HttpResponseRedirect('/')
+        
+        
+        
+        
+    
+    
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        contact_form = ContactForm()
+    
+    
+    context = {
+
+    }
+    
+    return render(request, 'nimuit/contact-us.html', context)
+
+
 
 def search(request):
     

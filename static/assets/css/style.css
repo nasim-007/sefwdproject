@@ -14234,7 +14234,7 @@ blockquote {
 =      40. About Us pages Css           =
 =======================================*/
 .about-us-bg {
-  background-image: url();
+  background-image:url(contact-us-01-hero-bg.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
