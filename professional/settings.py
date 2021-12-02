@@ -139,7 +139,7 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = True
 
 
 # Default primary key field type

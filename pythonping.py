@@ -1,6 +1,6 @@
 import requests
 
-response = requests.get('https://djangoproject2021.herokuapp.com')
+response = requests.get('https://sepwd.nimusoft.com')
 
 
 print(response)
