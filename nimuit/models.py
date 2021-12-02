@@ -1,7 +1,26 @@
 from django.db import models
 from django.db.models.fields import BLANK_CHOICE_DASH
+from django.urls import reverse
 
 # Create your models here.
+class Blog(models.Model):
+
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50, blank=True)
+    short_description = models.TextField()
+    description = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='blog/')
+    image_details = models.ImageField(upload_to='blog/', blank=True)
+    
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse("nimuit:blog_details", kwargs={
+            "slug": self.slug
+            })
+
 class Expert(models.Model):
 
     title = models.CharField(max_length=50)

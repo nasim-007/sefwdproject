@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Expert, Project, Testimonial, Service, Partner, Award
+from .models import Blog, Expert, Project, Testimonial, Service, Partner, Award
 from .forms import AppointmentForm, ContactForm
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
@@ -55,6 +55,28 @@ def index(request):
 
     return render(request, 'nimuit/nimuit.html', context)
 
+
+def blog_index(request):
+
+    blogs = Blog.objects.all()
+    context = {
+
+        'blogs': blogs
+     
+    }
+    
+    return render(request, 'nimuit/blog/index.html', context)
+
+
+def blog_details(request, slug):
+
+    blog = Blog.objects.get(slug=slug)
+    
+    context = {
+        'blog': blog,
+    }
+
+    return render(request, 'nimuit/blog/details.html', context)
 
 def contact(request):
 

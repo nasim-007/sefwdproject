@@ -1,6 +1,14 @@
 from django.contrib import admin
-from .models import Expert, Contact, Project, Testimonial, Service, Partner, Award, Appointment
+from .models import Blog, Expert, Contact, Project, Testimonial, Service, Partner, Award, Appointment
 # Register your models here.
+
+class BlogAdmin(admin.ModelAdmin):
+
+    list_display = ['title', 'short_description', 'image']
+    search_fields = ['title']
+    prepopulated_fields = {'slug': ('title',)}
+
+admin.site.register(Blog, BlogAdmin)
 
 class ExpertAdmin(admin.ModelAdmin):
 
